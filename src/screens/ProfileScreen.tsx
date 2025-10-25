@@ -184,10 +184,7 @@ const ProfileScreen: React.FC<ProfileMatchingFormProps> = ({
 
           <View style={styles.actionsRow}>
             <TouchableOpacity style={styles.buttonPrimary}>
-              <Text style={styles.buttonPrimaryText}>Like</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonOutline}>
-              <Text style={styles.buttonOutlineText}>Message</Text>
+              <Text style={styles.buttonPrimaryText}>Want to match</Text>
             </TouchableOpacity>
           </View>
         </View>
