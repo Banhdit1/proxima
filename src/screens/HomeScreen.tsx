@@ -20,11 +20,13 @@ const { width } = Dimensions.get('window');
 interface HomeScreenProps {
   onNavigateToForm: () => void;
   navigateToProfile: () => void;
+  onNavigateToSwipe: () => void;
 }
 
 export const HomeScreen: React.FC<HomeScreenProps> = ({
   onNavigateToForm,
   navigateToProfile,
+  onNavigateToSwipe,
 }) => {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
@@ -43,6 +45,28 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           <Text style={styles.tagline}>
             Business Networking & Professional Matching
           </Text>
+        </View>
+
+        {/* Nearby Matches Banner */}
+        <View style={styles.notificationBanner}>
+          <View style={styles.notificationContent}>
+            <Text style={styles.notificationIcon}>🔥</Text>
+            <View style={styles.notificationText}>
+              <Text style={styles.notificationTitle}>
+                5 New Matches Nearby!
+              </Text>
+              <Text style={styles.notificationSubtitle}>
+                Professionals around you match your criteria
+              </Text>
+            </View>
+          </View>
+          <Button
+            title="View Matches"
+            onPress={onNavigateToSwipe}
+            variant="primary"
+            fullWidth
+            style={styles.notificationButton}
+          />
         </View>
 
         {/* Hero Section */}
@@ -128,35 +152,43 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           <View style={styles.useCaseContainer}>
             <View style={styles.useCaseCard}>
               <Text style={styles.useCaseIcon}>👔</Text>
-              <Text style={styles.useCaseTitle}>Job Seekers</Text>
-              <Text style={styles.useCaseDescription}>
-                Find recruiters, hiring managers, and companies looking for
-                talent
-              </Text>
+              <View style={styles.useCaseTextContainer}>
+                <Text style={styles.useCaseTitle}>Job Seekers</Text>
+                <Text style={styles.useCaseDescription}>
+                  Find recruiters, hiring managers, and companies looking for
+                  talent
+                </Text>
+              </View>
             </View>
 
             <View style={styles.useCaseCard}>
               <Text style={styles.useCaseIcon}>🎯</Text>
-              <Text style={styles.useCaseTitle}>Entrepreneurs</Text>
-              <Text style={styles.useCaseDescription}>
-                Connect with investors, co-founders, and business partners
-              </Text>
+              <View style={styles.useCaseTextContainer}>
+                <Text style={styles.useCaseTitle}>Entrepreneurs</Text>
+                <Text style={styles.useCaseDescription}>
+                  Connect with investors, co-founders, and business partners
+                </Text>
+              </View>
             </View>
 
             <View style={styles.useCaseCard}>
               <Text style={styles.useCaseIcon}>📚</Text>
-              <Text style={styles.useCaseTitle}>Mentors & Mentees</Text>
-              <Text style={styles.useCaseDescription}>
-                Share knowledge and grow together through mentorship
-              </Text>
+              <View style={styles.useCaseTextContainer}>
+                <Text style={styles.useCaseTitle}>Mentors & Mentees</Text>
+                <Text style={styles.useCaseDescription}>
+                  Share knowledge and grow together through mentorship
+                </Text>
+              </View>
             </View>
 
             <View style={styles.useCaseCard}>
               <Text style={styles.useCaseIcon}>🤝</Text>
-              <Text style={styles.useCaseTitle}>Collaborators</Text>
-              <Text style={styles.useCaseDescription}>
-                Find team members for projects and business ventures
-              </Text>
+              <View style={styles.useCaseTextContainer}>
+                <Text style={styles.useCaseTitle}>Collaborators</Text>
+                <Text style={styles.useCaseDescription}>
+                  Find team members for projects and business ventures
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -220,6 +252,41 @@ const styles = StyleSheet.create({
     fontSize: theme.typography.fontSizes.base,
     color: theme.colors.text.secondary,
     textAlign: 'center',
+  },
+  notificationBanner: {
+    marginHorizontal: theme.spacing.lg,
+    marginTop: theme.spacing.lg,
+    backgroundColor: theme.colors.primary.lightest,
+    borderRadius: theme.borderRadius.lg,
+    padding: theme.spacing.lg,
+    borderWidth: 2,
+    borderColor: theme.colors.primary.main,
+    ...theme.shadows.lg,
+  },
+  notificationContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: theme.spacing.md,
+  },
+  notificationIcon: {
+    fontSize: 40,
+    marginRight: theme.spacing.md,
+  },
+  notificationText: {
+    flex: 1,
+  },
+  notificationTitle: {
+    fontSize: theme.typography.fontSizes.lg,
+    fontWeight: theme.typography.fontWeights.bold,
+    color: theme.colors.primary.dark,
+    marginBottom: theme.spacing.xs,
+  },
+  notificationSubtitle: {
+    fontSize: theme.typography.fontSizes.sm,
+    color: theme.colors.text.secondary,
+  },
+  notificationButton: {
+    marginTop: theme.spacing.sm,
   },
   heroSection: {
     paddingHorizontal: theme.spacing.lg,
@@ -298,29 +365,28 @@ const styles = StyleSheet.create({
     padding: theme.spacing.lg,
     ...theme.shadows.sm,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    marginBottom: theme.spacing.md,
   },
   useCaseIcon: {
     fontSize: 40,
     marginRight: theme.spacing.md,
+  },
+  useCaseTextContainer: {
+    flex: 1,
+    flexDirection: 'column',
   },
   useCaseTitle: {
     fontSize: theme.typography.fontSizes.lg,
     fontWeight: theme.typography.fontWeights.semibold,
     color: theme.colors.text.primary,
     marginBottom: theme.spacing.xs,
-    flex: 1,
   },
   useCaseDescription: {
     fontSize: theme.typography.fontSizes.sm,
     color: theme.colors.text.secondary,
-    flex: 1,
     lineHeight:
       theme.typography.fontSizes.sm * theme.typography.lineHeights.normal,
-    position: 'absolute',
-    left: 72,
-    right: theme.spacing.lg,
-    top: 40,
   },
   ctaCard: {
     backgroundColor: theme.colors.primary.lightest,
