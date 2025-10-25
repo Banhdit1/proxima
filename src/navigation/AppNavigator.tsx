@@ -5,13 +5,15 @@
 import React, { useState } from 'react';
 import { HomeScreen } from '../screens/HomeScreen';
 import { ProfileMatchingForm } from '../screens/ProfileMatchingForm';
+import { NearbyPeersScreen } from '../screens/NearbyPeersScreen';
 
-type Screen = 'home' | 'form';
+type Screen = 'home' | 'form' | 'peers';
 
 export const AppNavigator: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
 
   const navigateToForm = () => setCurrentScreen('form');
+  const navigateToPeers = () => setCurrentScreen('peers');
   const navigateToHome = () => setCurrentScreen('home');
 
   // Simple navigation without external library
@@ -20,5 +22,14 @@ export const AppNavigator: React.FC = () => {
     return <ProfileMatchingForm onNavigateToHome={navigateToHome} />;
   }
 
-  return <HomeScreen onNavigateToForm={navigateToForm} />;
+  if (currentScreen === 'peers') {
+    return <NearbyPeersScreen onNavigateBack={navigateToHome} />;
+  }
+
+  return (
+    <HomeScreen
+      onNavigateToForm={navigateToForm}
+      onNavigateToPeers={navigateToPeers}
+    />
+  );
 };

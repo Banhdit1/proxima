@@ -35,6 +35,13 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Proxima uses local network to discover and connect with nearby professionals for business networking.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_proxima-net._tcp</string>
+		<string>_proxima-net._udp</string>
+	</array>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -139,32 +139,59 @@ export const ProfileMatchingForm: React.FC<ProfileMatchingFormProps> = ({
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      Alert.alert(
-        'Profile Saved! 🎉',
-        "Your matching preferences have been saved. We'll start finding the perfect matches for you!",
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              // Reset form
-              setFormData({
-                lookingFor: '',
-                industry: '',
-                jobTitle: '',
-                skills: '',
-                purpose: '',
-                location: '',
-                experienceLevel: '',
-                companySize: '',
-              });
-            },
+    try {
+      const response = await fetch(
+        'https://vxju2hufc3wanrtbs7eikcoc340nmkyb.lambda-url.us-east-2.on.aws/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
           },
-        ],
+          body: JSON.stringify(formData),
+        },
       );
-    }, 1500);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitting(false);
+        Alert.alert(
+          'Profile Saved! 🎉',
+          "Your matching preferences have been saved. We'll start finding the perfect matches for you!",
+          [
+            {
+              text: 'OK',
+              onPress: () => {
+                // Reset form
+                setFormData({
+                  lookingFor: '',
+                  industry: '',
+                  jobTitle: '',
+                  skills: '',
+                  purpose: '',
+                  location: '',
+                  experienceLevel: '',
+                  companySize: '',
+                });
+              },
+            },
+          ],
+        );
+      } else {
+        setIsSubmitting(false);
+        Alert.alert(
+          'Error',
+          data.message || 'Failed to save profile. Please try again.',
+        );
+      }
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error('Error submitting form:', error);
+      Alert.alert(
+        'Network Error',
+        'Failed to connect to the server. Please check your internet connection and try again.',
+      );
+    }
   };
 
   const handleReset = () => {
@@ -318,7 +345,7 @@ export const ProfileMatchingForm: React.FC<ProfileMatchingFormProps> = ({
             {/* Action Buttons */}
             <View style={styles.buttonContainer}>
               <Button
-                title="Find Matches"
+                title="Save Search"
                 onPress={handleSubmit}
                 variant="primary"
                 fullWidth

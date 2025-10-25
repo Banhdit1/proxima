@@ -19,9 +19,13 @@ const { width } = Dimensions.get('window');
 
 interface HomeScreenProps {
   onNavigateToForm: () => void;
+  onNavigateToPeers?: () => void;
 }
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigateToForm }) => {
+export const HomeScreen: React.FC<HomeScreenProps> = ({
+  onNavigateToForm,
+  onNavigateToPeers,
+}) => {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <StatusBar
@@ -59,6 +63,15 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigateToForm }) => {
               fullWidth
               style={styles.ctaButton}
             />
+            {onNavigateToPeers && (
+              <Button
+                title="🔍 Discover Nearby Professionals"
+                onPress={onNavigateToPeers}
+                variant="outline"
+                fullWidth
+                style={styles.secondaryButton}
+              />
+            )}
           </View>
         </View>
 
@@ -225,6 +238,9 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   ctaButton: {
+    marginTop: theme.spacing.md,
+  },
+  secondaryButton: {
     marginTop: theme.spacing.md,
   },
   section: {
