@@ -19,9 +19,13 @@ const { width } = Dimensions.get('window');
 
 interface HomeScreenProps {
   onNavigateToForm: () => void;
+  navigateToProfile: () => void;
 }
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigateToForm }) => {
+export const HomeScreen: React.FC<HomeScreenProps> = ({
+  onNavigateToForm,
+  navigateToProfile,
+}) => {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <StatusBar
@@ -55,6 +59,22 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigateToForm }) => {
             <Button
               title="Start Matching Now"
               onPress={onNavigateToForm}
+              variant="primary"
+              fullWidth
+              style={styles.ctaButton}
+            />
+          </View>
+        </View>
+
+        <View style={styles.heroSection}>
+          <View style={styles.heroCard}>
+            <Text style={styles.heroTitle}>Go to Profile Screen</Text>
+            <Text style={styles.heroDescription}>
+              View the my profile screen.
+            </Text>
+            <Button
+              title="Go to Profile"
+              onPress={navigateToProfile}
               variant="primary"
               fullWidth
               style={styles.ctaButton}
