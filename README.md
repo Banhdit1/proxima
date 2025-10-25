@@ -1,4 +1,61 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Proxima - Business Networking & Professional Matching App
+
+This is a [**React Native**](https://reactnative.dev) business networking application that helps professionals connect with the right people for mentorship, collaboration, hiring, and partnerships. Built with a beautiful pink theme using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+
+## Features
+
+- 🤝 **Professional Matching** - Find the right business connections based on detailed criteria
+- 📝 **Matching Profile Form** - Comprehensive form to specify who you're looking for
+- 🎨 **Pink Theme Design System** - Beautiful pink color palette with consistent styling
+- 📱 **Responsive UI** - Adapts to different screen sizes and orientations
+- ♿ **Accessibility Support** - Full accessibility features for screen readers
+- 🎯 **Form Validation** - Real-time validation with error messages
+- 🎭 **Modern UI Components** - Custom Button, TextInput, and Picker components
+- 📱 **Cross-Platform** - Works on both iOS and Android
+
+## App Structure
+
+### Screens
+
+1. **Home Screen** - Landing page showcasing the value proposition
+   - Hero section with CTAs
+   - How it works (4-step process)
+   - Use cases (Job Seekers, Entrepreneurs, Mentors, Collaborators)
+   
+2. **Profile Matching Form** - Define your ideal match
+   - Professional criteria (Industry, Role, Experience Level)
+   - Purpose selection (Networking, Mentorship, Hiring, etc.)
+   - Skills and location preferences
+   - Form validation and submission
+
+### Components
+
+The app includes a comprehensive component library:
+
+- **Button Component** - Multiple variants (primary, secondary, outline, ghost) with loading states
+- **TextInput Component** - Custom input fields with validation, error states, and accessibility
+- **Picker Component** - Custom dropdown with modal selection UI
+- **Theme System** - Comprehensive design system with colors, typography, spacing, and shadows
+
+## Theme System
+
+The app uses a comprehensive design system with:
+
+- **Color Palette** - Pink theme with neutral grays and semantic colors
+- **Typography** - Consistent font sizing (12px - 48px) and weights
+- **Spacing** - Systematic spacing scale (4px - 96px)
+- **Shadows** - 4 elevation levels for depth
+- **Border Radius** - Consistent corner rounding
+
+## Matching Criteria
+
+The Profile Matching Form includes:
+
+- **Purpose**: Networking, Mentorship, Collaboration, Hiring, Investment, Partnership, Learning, Career
+- **Industries**: Technology, Finance, Healthcare, Education, Manufacturing, Retail, Marketing, Consulting, Real Estate, Entertainment, Non-Profit
+- **Experience Levels**: Entry, Junior, Mid-Level, Senior, Lead, Executive
+- **Company Sizes**: Startup, Small, Medium, Large, Enterprise
+- **Skills & Location**: Free-form text for detailed requirements
 
 # Getting Started
 
