@@ -1,10 +1,11 @@
-# Proxima - Business Networking & Professional Matching App
+# Proxima - Business Networking & Professional Matching App - Passive Detection for matching
 
 This is a [**React Native**](https://reactnative.dev) business networking application that helps professionals connect with the right people for mentorship, collaboration, hiring, and partnerships. Built with a beautiful pink theme using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 ## Features
 
 - 🤝 **Professional Matching** - Find the right business connections based on detailed criteria
+- 📡 **Bluetooth Passive Matching** - Uses Bluetooth broadcast system to share user IDs for automatic proximity-based matching
 - 📝 **Matching Profile Form** - Comprehensive form to specify who you're looking for
 - 🎨 **Pink Theme Design System** - Beautiful pink color palette with consistent styling
 - 📱 **Responsive UI** - Adapts to different screen sizes and orientations
@@ -21,7 +22,6 @@ This is a [**React Native**](https://reactnative.dev) business networking applic
    - Hero section with CTAs
    - How it works (4-step process)
    - Use cases (Job Seekers, Entrepreneurs, Mentors, Collaborators)
-   
 2. **Profile Matching Form** - Define your ideal match
    - Professional criteria (Industry, Role, Experience Level)
    - Purpose selection (Networking, Mentorship, Hiring, etc.)
@@ -56,6 +56,18 @@ The Profile Matching Form includes:
 - **Experience Levels**: Entry, Junior, Mid-Level, Senior, Lead, Executive
 - **Company Sizes**: Startup, Small, Medium, Large, Enterprise
 - **Skills & Location**: Free-form text for detailed requirements
+
+## Bluetooth Passive Matching Technology
+
+Proxima uses a Bluetooth Low Energy (BLE) broadcast system for passive, proximity-based matching:
+
+- **Automatic Discovery**: Your device broadcasts your user ID via Bluetooth when the app is active
+- **Privacy-First**: Only your anonymous user ID is broadcast, not personal information
+- **Proximity-Based**: Automatically discover other Proxima users nearby at events, conferences, or coworking spaces
+- **Passive Matching**: No need to manually search - connections happen automatically when you're in range
+- **Cross-Platform**: Works seamlessly on both iOS and Android devices
+
+This technology enables seamless networking by detecting when professionals with matching criteria are in the same physical space, facilitating organic connections without requiring active app engagement.
 
 # Getting Started
 
