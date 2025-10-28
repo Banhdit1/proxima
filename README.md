@@ -1,6 +1,12 @@
 # Proxima - Business Networking & Professional Matching App - Passive Detection for matching
 
-This is a [**React Native**](https://reactnative.dev) business networking application that helps professionals connect with the right people for mentorship, collaboration, hiring, and partnerships. Built with a beautiful pink theme using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is a [**React Native**](https://reactnative.dev) business networking application that revolutionizes professional networking through **passive Bluetooth detection** and **swipe-based matching**.
+
+**Passive Detection**: Your phone automatically broadcasts and discovers nearby professionals using Bluetooth Low Energy (BLE), enabling seamless connections at conferences, coworking spaces, and networking events—without any manual searching.
+
+**Swipe to Match**: Browse detected professionals with a Tinder-style swipe interface. Swipe right on profiles that match your networking goals (mentorship, collaboration, hiring, partnerships) and instantly connect when there's mutual interest. See real-time proximity information and match with people just meters away.
+
+Built with a beautiful modern UI using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 ## Features
 
